@@ -130,6 +130,8 @@ if need_passenger_patch
   end
 end
 
-if defined?(::ActiveSupport::Cache::MemCacheStore)
-  ::ActiveSupport::Cache::MemCacheStore.delegate :reset, :to => :@data
-end
+# Remove memcache support for now since we don't need it and it's breaking startup
+# since we don't use it and these lines currently have a hard requirement for it.
+#if defined?(::ActiveSupport::Cache::MemCacheStore)
+#  ::ActiveSupport::Cache::MemCacheStore.delegate :reset, :to => :@data
+#end
